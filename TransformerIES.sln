@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.329
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29609.76
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TransformerIES", "TransformerIES\TransformerIES.csproj", "{E65279F6-E642-49FC-A225-77EA42BDAB52}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Old console project", "TransformerIES\Old console project.csproj", "{E65279F6-E642-49FC-A225-77EA42BDAB52}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IESTransformer", "IESTransformer\IESTransformer.csproj", "{01F92075-414D-4AE7-BFCF-C3EA7C39FA4E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{E65279F6-E642-49FC-A225-77EA42BDAB52}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E65279F6-E642-49FC-A225-77EA42BDAB52}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E65279F6-E642-49FC-A225-77EA42BDAB52}.Release|Any CPU.Build.0 = Release|Any CPU
+		{01F92075-414D-4AE7-BFCF-C3EA7C39FA4E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01F92075-414D-4AE7-BFCF-C3EA7C39FA4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01F92075-414D-4AE7-BFCF-C3EA7C39FA4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01F92075-414D-4AE7-BFCF-C3EA7C39FA4E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
