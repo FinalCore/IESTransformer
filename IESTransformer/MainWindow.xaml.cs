@@ -1,17 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.IO;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using Microsoft.Win32;
+using IESTransformer.lib;
 
 namespace IESTransformer
 {
@@ -23,6 +15,19 @@ namespace IESTransformer
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        public void btnOpenFileClick(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();                      
+            openFileDialog.Filter = "ies files (.ies)|*.ies"; // Filter files by extension
+
+            // Show open file dialog box
+            Nullable<bool> result = openFileDialog.ShowDialog();
+
+            // Process open file dialog box results
+            IesFile file_1 = new IesFile();
+            file_1.ReadFile();
         }
     }
 }

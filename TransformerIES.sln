@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Old console project", "Tran
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IESTransformer", "IESTransformer\IESTransformer.csproj", "{01F92075-414D-4AE7-BFCF-C3EA7C39FA4E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleTestProject", "ConsoleTestProject\ConsoleTestProject.csproj", "{24A7C9A3-191E-4547-A7AC-B4366E97A108}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IESTransformer.lib", "IESTransformer.lib\IESTransformer.lib.csproj", "{053BBEB0-BAD5-4B36-948A-7164F56C191E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{01F92075-414D-4AE7-BFCF-C3EA7C39FA4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{01F92075-414D-4AE7-BFCF-C3EA7C39FA4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{01F92075-414D-4AE7-BFCF-C3EA7C39FA4E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{24A7C9A3-191E-4547-A7AC-B4366E97A108}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24A7C9A3-191E-4547-A7AC-B4366E97A108}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24A7C9A3-191E-4547-A7AC-B4366E97A108}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24A7C9A3-191E-4547-A7AC-B4366E97A108}.Release|Any CPU.Build.0 = Release|Any CPU
+		{053BBEB0-BAD5-4B36-948A-7164F56C191E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{053BBEB0-BAD5-4B36-948A-7164F56C191E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{053BBEB0-BAD5-4B36-948A-7164F56C191E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{053BBEB0-BAD5-4B36-948A-7164F56C191E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

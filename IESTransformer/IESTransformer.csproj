@@ -94,5 +94,16 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\IESTransformer.lib\IESTransformer.lib.csproj">
+      <Project>{053bbeb0-bad5-4b36-948a-7164f56c191e}</Project>
+      <Name>IESTransformer.lib</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Add_button.png" />
+    <Resource Include="Images\Delete_button.png" />
+    <Resource Include="Images\Edit_button.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

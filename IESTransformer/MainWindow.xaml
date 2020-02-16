@@ -6,7 +6,69 @@
         xmlns:local="clr-namespace:IESTransformer"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="Файл"></MenuItem>
+            <MenuItem Header="Помощь"></MenuItem>
+        </Menu>
+        <TabControl DockPanel.Dock="Top">
+            <TabItem Header="Выбрать файлы">
+                <DockPanel>
+                    <Grid DockPanel.Dock="Top">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <ToolBarTray Grid.Column="0">
+                            <ToolBar Header="Выбрать файл">
+                                <ComboBox Name="iesFile_1" Width="180"></ComboBox>
+                                <Button Name="btnOpenFile" Click="btnOpenFileClick">
+                                    <Image Height="16" Source="Images\Add_button.png"></Image>
+                                </Button>
+                                <Button>
+                                    <Image Height="16" Source="Images\Edit_button.png"></Image>
+                                </Button>
+                                <Button>
+                                    <Image Height="16" Source="Images\Delete_button.png"></Image>
+                                </Button>
+                            </ToolBar>                           
+                        </ToolBarTray>
+                        <ToolBarTray Grid.Column="1">
+                            <ToolBar Header="Выбрать файл">
+                                <ComboBox Name="iesFile_2" Width="180"></ComboBox>
+                                <Button>
+                                    <Image Height="16" Source="Images\Add_button.png"></Image>
+                                </Button>
+                                <Button>
+                                    <Image Height="16" Source="Images\Edit_button.png"></Image>
+                                </Button>
+                                <Button>
+                                    <Image Height="16" Source="Images\Delete_button.png"></Image>
+                                </Button>
+                            </ToolBar>
+                        </ToolBarTray>
+                    </Grid>                    
+                    <CheckBox Content="Использовать одинаковые файлы" Height="18" DockPanel.Dock="Top" VerticalAlignment="Top"/>
+                    <Grid DockPanel.Dock="Top">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <GroupBox Header="ies файл 1" Grid.Column="0">
+                            
+                        </GroupBox>
+                        <GroupBox Header="ies файл 2" Grid.Column="1">
+                            
+                        </GroupBox>
+                    </Grid>
+                    <ToolBarTray Height="16" DockPanel.Dock="Bottom">
+                        <ToolBar Header="Редактировать" Height="16" VerticalAlignment="Bottom">                            
+                        </ToolBar>
+                    </ToolBarTray>                    
+                </DockPanel>
+            </TabItem>
+            <TabItem Header="Редактировать"></TabItem>
+        </TabControl>
         
-    </Grid>
+    </DockPanel>
 </Window>
