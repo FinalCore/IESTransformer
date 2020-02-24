@@ -24,10 +24,13 @@ namespace IESTransformer
 
             // Show open file dialog box
             Nullable<bool> result = openFileDialog.ShowDialog();
-
-            // Process open file dialog box results
-            IesFile file_1 = new IesFile();
-            file_1.ReadFile();
+            if(result == true)
+            {
+                // Process open file dialog box results
+                IesFile file_1 = new IesFile();
+                file_1.ReadFile(openFileDialog.FileName);
+            } 
+            
         }
     }
 }

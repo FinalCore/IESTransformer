@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="FileProcessing.cs" />
     <Compile Include="IesFile.cs" />
+    <Compile Include="IESFileParser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

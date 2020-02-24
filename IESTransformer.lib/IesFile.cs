@@ -9,8 +9,7 @@ namespace IESTransformer.lib
 {
     public class IesFile
     {
-        public static List<string> iesFileContent = new List<string>();        
-        
+        public static List<string> iesFileContent = new List<string>(); 
         
         
         /// <summary>
@@ -18,11 +17,12 @@ namespace IESTransformer.lib
         /// </summary>
         public void ReadFile(string path)
         {
-            string[] iesFileRaw = File.ReadAllLines(path);
-            //for (int i = 0; i < iesFileRaw.Length; i++)
-            //{
-            //    iesFileContent.Add(iesFileRaw[i]);
-            //}
+            Encoding win1251 = Encoding.GetEncoding("Windows-1251");
+            string[] iesFileRaw = File.ReadAllLines(path, win1251);
+            for (int i = 0; i < iesFileRaw.Length; i++)
+            {
+                iesFileContent.Add(iesFileRaw[i]);
+            }
         }
     }
 }
