@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 16.0.29609.76
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Old console project", "TransformerIES\Old console project.csproj", "{E65279F6-E642-49FC-A225-77EA42BDAB52}"
+	ProjectSection(ProjectDependencies) = postProject
+		{01F92075-414D-4AE7-BFCF-C3EA7C39FA4E} = {01F92075-414D-4AE7-BFCF-C3EA7C39FA4E}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IESTransformer", "IESTransformer\IESTransformer.csproj", "{01F92075-414D-4AE7-BFCF-C3EA7C39FA4E}"
 EndProject

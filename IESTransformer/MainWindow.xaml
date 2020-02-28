@@ -49,6 +49,17 @@
                         </ToolBarTray>
                     </Grid>                    
                     <CheckBox Content="Использовать одинаковые файлы" Height="18" DockPanel.Dock="Top" VerticalAlignment="Top"/>
+                    <DataGrid Name="IesFile_1" DockPanel.Dock="Top">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="id" Width="*"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Имя" Width="*"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Световой поток, лм" Width="*"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Множитель" Width="*"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Кол-во углов" Width="*"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Габариты, мм" Width="*"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Мощность, Вт" Width="*"></DataGridTextColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
                     <Grid DockPanel.Dock="Top">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"></ColumnDefinition>
