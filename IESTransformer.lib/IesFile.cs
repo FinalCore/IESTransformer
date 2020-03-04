@@ -12,8 +12,8 @@ namespace IESTransformer.lib
     {
         static List<string> iesFileContent = new List<string>();
         string name;
-        int ledFlux, outFlux, alphaCount, bethaCount, length, width, height;
-        double fluxRation, power;
+        int lampFlux, numberOfLamps, outFlux, alphaCount, bethaCount, length, width, height;
+        double fluxRatio, power;
 
         public string Name { get; set; }
 
@@ -28,6 +28,25 @@ namespace IESTransformer.lib
             {
                 iesFileContent.Add(iesFileRaw[i]);
             }
+        }
+
+        public void ExtractData<T>(ref T parameter)
+        {
+            // Извлекаем строку IES файла, в которой содержится информация о параметрах светильника
+            string pattern = @"\d{1,3}\s{1,4}\d{1,4}\s[\d{1,4}.\d{1-3}]";
+            Regex searchKey = new Regex(pattern);
+            for (int i = 0; i < iesFileContent.Count; i++)
+            {
+                if (searchKey.IsMatch(iesFileContent[i]))
+                {
+                    string dataString = iesFileContent[i];
+                    break;
+                }
+            }
+
+            // Извлекаем значение количества ламп в светильнике
+            string substring 
+
         }
 
         /// <summary>
