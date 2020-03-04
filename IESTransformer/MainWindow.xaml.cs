@@ -29,6 +29,7 @@ namespace IESTransformer
                 // Process open file dialog box results
                 IesFile file_1 = new IesFile();
                 file_1.ReadFile(openFileDialog.FileName);
+                file_1.Name = openFileDialog.SafeFileName;                
             } 
             
         }

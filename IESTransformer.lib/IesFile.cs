@@ -10,9 +10,13 @@ namespace IESTransformer.lib
 {
     public class IesFile
     {
-        public static List<string> iesFileContent = new List<string>(); 
-        
-        
+        static List<string> iesFileContent = new List<string>();
+        string name;
+        int ledFlux, outFlux, alphaCount, bethaCount, length, width, height;
+        double fluxRation, power;
+
+        public string Name { get; set; }
+
         /// <summary>
         /// Метод для чтения содержимого IES файла из текстового файла
         /// </summary>
@@ -31,7 +35,7 @@ namespace IESTransformer.lib
         /// </summary>
         /// <param name="pattern"></param>
         /// <returns></returns>
-        public void ExtractAnglesDim(out int alphaCount, out int bethaCount)
+        public void ExtractAnglesDim(ref int alphaCount, ref int bethaCount)
         {
             /* Извлекаем строку IES файла, в которой содержится информация о количестве углов, под которыми производились
                измерения силы света */

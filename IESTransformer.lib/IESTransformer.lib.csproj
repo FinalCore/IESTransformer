@@ -45,6 +45,11 @@
     <Compile Include="IesFile.cs" />
     <Compile Include="IESFileParser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\IesFilesManager.cs" />
+    <Compile Include="Services\IesFilesStoreInMemory.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Services\Interfaces\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
