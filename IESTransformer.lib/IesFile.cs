@@ -16,6 +16,7 @@ namespace IESTransformer.lib
         double fluxRatio, power;
 
         public string Name { get; set; }
+        public int NumberOfLamps { get; set; }
 
         /// <summary>
         /// Метод для чтения содержимого IES файла из текстового файла
@@ -30,8 +31,9 @@ namespace IESTransformer.lib
             }
         }
 
-        public void ExtractData<T>(ref T parameter)
+        public void ExtractData()
         {
+            string dataString = "";
             // Извлекаем строку IES файла, в которой содержится информация о параметрах светильника
             string pattern = @"\d{1,3}\s{1,4}\d{1,4}\s[\d{1,4}.\d{1-3}]";
             Regex searchKey = new Regex(pattern);
@@ -39,13 +41,29 @@ namespace IESTransformer.lib
             {
                 if (searchKey.IsMatch(iesFileContent[i]))
                 {
-                    string dataString = iesFileContent[i];
+                    dataString = iesFileContent[i];
                     break;
                 }
             }
 
-            // Извлекаем значение количества ламп в светильнике
-            string substring 
+            // Извлекаем основные параметры светильника из строки dataString
+            pattern = @"\s{2,}";
+            dataString = Regex.Replace(dataString, pattern, " ");
+            string[] temp = dataString.Split(' ');
+
+            numberOfLamps = int.Parse(temp[0]);
+            lampFlux = int.Parse(temp[1]);
+
+            //for(int i = 0; i < dataString.Length; i++)
+            //{
+            //    if (dataString[i] == ' ')
+            //    {
+            //        string substring = dataString.Substring(0, i);
+            //        NumberOfLamps = int.Parse(substring);
+            //        //отсекаем исследованную часть строки dataString
+            //    }
+            //}
+
 
         }
 
