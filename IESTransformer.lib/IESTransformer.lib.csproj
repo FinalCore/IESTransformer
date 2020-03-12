@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\TestData.cs" />
     <Compile Include="FileProcessing.cs" />
     <Compile Include="IesFile.cs" />
     <Compile Include="IESFileParser.cs" />

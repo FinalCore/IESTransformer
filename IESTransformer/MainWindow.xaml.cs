@@ -4,6 +4,7 @@ using System.IO;
 using System.Windows;
 using Microsoft.Win32;
 using IESTransformer.lib;
+using IESTransformer.lib.Data;
 
 namespace IESTransformer
 {
@@ -31,6 +32,7 @@ namespace IESTransformer
                 file_1.ReadFile(openFileDialog.FileName);
                 file_1.Name = openFileDialog.SafeFileName;
                 file_1.ExtractData();
+                TestData.iesFiles.Add(file_1);
             } 
             
         }

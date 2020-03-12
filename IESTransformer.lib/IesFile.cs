@@ -12,8 +12,8 @@ namespace IESTransformer.lib
     {
         static List<string> iesFileContent = new List<string>();
         string name;
-        int lampFlux, numberOfLamps, outFlux, alphaCount, bethaCount, length, width, height;
-        double fluxRatio, power;
+        int lampFlux, numberOfLamps, outFlux, alphaCount, bethaCount;
+        double fluxRatio, power, length, width, height;
 
         public string Name { get; set; }
         public int NumberOfLamps { get; set; }
@@ -35,6 +35,7 @@ namespace IESTransformer.lib
         {
             string dataString = "";
             // Извлекаем строку IES файла, в которой содержится информация о параметрах светильника
+            System.Threading.Thread.CurrentThread.CurrentCulture = System.Globalization.CultureInfo.InvariantCulture;
             string pattern = @"\d{1,3}\s{1,4}\d{1,4}\s[\d{1,4}.\d{1-3}]";
             Regex searchKey = new Regex(pattern);
             for (int i = 0; i < iesFileContent.Count; i++)
@@ -53,6 +54,12 @@ namespace IESTransformer.lib
 
             numberOfLamps = int.Parse(temp[0]);
             lampFlux = int.Parse(temp[1]);
+            fluxRatio = double.Parse(temp[2]);
+            alphaCount = int.Parse(temp[3]);  
+            bethaCount = int.Parse(temp[4]);
+            width = double.Parse(temp[7]);
+            length = double.Parse(temp[8]);
+            height = double.Parse(temp[9]);
 
             //for(int i = 0; i < dataString.Length; i++)
             //{
