@@ -23,7 +23,7 @@
                         </Grid.ColumnDefinitions>
                         <ToolBarTray Grid.Column="0">
                             <ToolBar Header="Выбрать файл">
-                                <ComboBox Name="iesFile_1" Width="180"></ComboBox>
+                                <ComboBox Name="iesFile_1" Width="180" SelectionChanged="iesFile_1_SelectionChanged"></ComboBox>
                                 <Button Name="btnOpenFile" Click="btnOpenFileClick">
                                     <Image Height="16" Source="Images\Add_button.png"></Image>
                                 </Button>
@@ -51,12 +51,12 @@
                         </ToolBarTray>
                     </Grid>                    
                     <CheckBox Content="Использовать одинаковые файлы" Height="18" DockPanel.Dock="Top" VerticalAlignment="Top"/>
-                    <DataGrid Name="IesFile_1" DockPanel.Dock="Top">
+                    <DataGrid ItemsSource ="{Binding IesFiles}" Name="IesFiles" DockPanel.Dock="Top">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="id" Width="*"></DataGridTextColumn>
                             <DataGridTextColumn Header="Имя" Width="*"></DataGridTextColumn>
-                            <DataGridTextColumn Header="Световой поток, лм" Width="*"></DataGridTextColumn>
-                            <DataGridTextColumn Header="Множитель" Width="*"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Световой поток, лм" Binding="{Binding LampFlux}" Width="*"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Множитель" Binding="{Binding FluxRatio}" Width="*"></DataGridTextColumn>
                             <DataGridTextColumn Header="Кол-во углов" Width="*"></DataGridTextColumn>
                             <DataGridTextColumn Header="Габариты, мм" Width="*"></DataGridTextColumn>
                             <DataGridTextColumn Header="Мощность, Вт" Width="*"></DataGridTextColumn>

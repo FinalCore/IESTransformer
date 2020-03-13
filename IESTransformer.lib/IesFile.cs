@@ -16,7 +16,13 @@ namespace IESTransformer.lib
         double fluxRatio, power, length, width, height;
 
         public string Name { get; set; }
+        public int LampFlux { get; set; }
         public int NumberOfLamps { get; set; }
+        public int OutFlux { get; set; }
+        public int AlphaCount { get; set; }
+        public int BethaCount { get; set; }
+        public double FluxRatio { get; set; }
+        public double Power { get; set; }
 
         /// <summary>
         /// Метод для чтения содержимого IES файла из текстового файла

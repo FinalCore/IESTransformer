@@ -15,6 +15,7 @@
 using CommonServiceLocator;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
+using IESTransformer.lib.Services;
 
 namespace IESTransformer.ViewModel
 {
@@ -42,7 +43,10 @@ namespace IESTransformer.ViewModel
             ////    SimpleIoc.Default.Register<IDataService, DataService>();
             ////}
 
+            // Регистрируем все интересующие нас классы в Service Locator для того, чтобы можно было к ним обращаться через Locator
             SimpleIoc.Default.Register<MainWindowViewModel>();
+            SimpleIoc.Default.Register<IesFilesManager>();
+            SimpleIoc.Default.Register<IesFilesStoreInMemory>();
         }
 
         public MainWindowViewModel MainWindowModel
