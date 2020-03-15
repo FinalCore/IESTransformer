@@ -15,6 +15,6 @@ namespace IESTransformer.lib.Services
         /// Метод, возвращающий коллекцию ies файлов, добавленных в текущем сеансе работы приложения
         /// </summary>
         /// <returns></returns>
-        public IEnumerable<IesFile> Get() => TestData.iesFiles;
+        public IEnumerable<IesFile> Get() => TestData.IesFiles;
     }
 }

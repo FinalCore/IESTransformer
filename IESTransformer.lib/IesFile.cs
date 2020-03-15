@@ -23,6 +23,20 @@ namespace IESTransformer.lib
         public int BethaCount { get; set; }
         public double FluxRatio { get; set; }
         public double Power { get; set; }
+        public double Length { get; set; }
+        public double Width { get; set; }
+        public double Height { get; set; }
+
+        //Конструктор по умолчанию
+        public IesFile() { }
+
+        // Тестовый конструктор
+        public IesFile(string name, int outFlux, double power)
+        {
+            Name = name;
+            OutFlux = outFlux;
+            Power = power;
+        }
 
         /// <summary>
         /// Метод для чтения содержимого IES файла из текстового файла
@@ -58,14 +72,14 @@ namespace IESTransformer.lib
             dataString = Regex.Replace(dataString, pattern, " ");
             string[] temp = dataString.Split(' ');
 
-            numberOfLamps = int.Parse(temp[0]);
-            lampFlux = int.Parse(temp[1]);
-            fluxRatio = double.Parse(temp[2]);
-            alphaCount = int.Parse(temp[3]);  
-            bethaCount = int.Parse(temp[4]);
-            width = double.Parse(temp[7]);
-            length = double.Parse(temp[8]);
-            height = double.Parse(temp[9]);
+            NumberOfLamps = int.Parse(temp[0]);
+            LampFlux = int.Parse(temp[1]);
+            FluxRatio = double.Parse(temp[2]);
+            AlphaCount = int.Parse(temp[3]);  
+            BethaCount = int.Parse(temp[4]);
+            Width = double.Parse(temp[7]);
+            Length = double.Parse(temp[8]);
+            Height = double.Parse(temp[9]);
 
             //for(int i = 0; i < dataString.Length; i++)
             //{
