@@ -32,7 +32,9 @@ namespace IESTransformer
                 file_1.ReadFile(openFileDialog.FileName);
                 file_1.Name = openFileDialog.SafeFileName;
                 file_1.ExtractData();
-                TestData.IesFiles.Add(file_1);
+                file_1.ExtractIntencity();
+                TestData.IesFiles.Add(file_1);              
+                List<double[]> Test = file_1.IntencityMatrix;           
             } 
             
         }

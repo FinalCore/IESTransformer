@@ -14,7 +14,7 @@ namespace TransformerIES
             //string path = @"..\..\IES test files\ALS_PRS_418.ies";
             //string path = @"..\..\IES test files\IS-AC-AURORA-50 (D60) (2300.RGB.L) (2-2.10.4).ies";
             //string path = @"..\..\IES test files\GALAD Аврора LED-28-Wide_W2200.ies";
-            string path = @"..\..\IES test files\ALS_PRS_418.ies";
+            string path = @"..\..\IES test files\GALAD Аврора LED-28-Wide_W2200.ies";
             IESReader.iesFileRead(path);
             //foreach (var item in IESReader.iesFileContent)
             //Console.WriteLine(item);

@@ -5,15 +5,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using System.Text.RegularExpressions;
+using System.Dynamic;
 
 namespace IESTransformer.lib
 {
     public class IesFile
     {
         static List<string> iesFileContent = new List<string>();
-        string name;
-        int lampFlux, numberOfLamps, outFlux, alphaCount, bethaCount;
-        double fluxRatio, power, length, width, height;
+        //string name;
+        //int lampFlux, numberOfLamps, outFlux, alphaCount, bethaCount;
+        //double fluxRatio, power, length, width, height;
 
         public string Name { get; set; }
         public int LampFlux { get; set; }
@@ -26,6 +27,7 @@ namespace IESTransformer.lib
         public double Length { get; set; }
         public double Width { get; set; }
         public double Height { get; set; }
+        public List<double[]> IntencityMatrix = new List<double[]>();
 
         //Конструктор по умолчанию
         public IesFile() { }
@@ -51,6 +53,9 @@ namespace IESTransformer.lib
             }
         }
 
+        /// <summary>
+        /// Метод, извлекающий основные данные о светильнике из ies файла
+        /// </summary>
         public void ExtractData()
         {
             string dataString = "";
@@ -79,59 +84,45 @@ namespace IESTransformer.lib
             BethaCount = int.Parse(temp[4]);
             Width = double.Parse(temp[7]);
             Length = double.Parse(temp[8]);
-            Height = double.Parse(temp[9]);
-
-            //for(int i = 0; i < dataString.Length; i++)
-            //{
-            //    if (dataString[i] == ' ')
-            //    {
-            //        string substring = dataString.Substring(0, i);
-            //        NumberOfLamps = int.Parse(substring);
-            //        //отсекаем исследованную часть строки dataString
-            //    }
-            //}
-
-
-        }
+            Height = double.Parse(temp[9]);            
+        }       
 
         /// <summary>
-        /// Метод, извлекающий количество углов фотометрирования, заданных в ies файле.
+        /// Метод, извлекающий массив значений сил света из ies файлы
         /// </summary>
-        /// <param name="pattern"></param>
-        /// <returns></returns>
-        public void ExtractAnglesDim(ref int alphaCount, ref int bethaCount)
+        public void ExtractIntencity()
         {
-            /* Извлекаем строку IES файла, в которой содержится информация о количестве углов, под которыми производились
-               измерения силы света */
-            string pattern = @"(\d{ 3,5}.\d{ 1,2})\s\d{ 1,3}.\d{ 1,3}";
+            // отсекаем часть ies файла, выше массива значений сил света
+            string pattern = @"360.0";
             Regex searchKey = new Regex(pattern);
             for (int i = 0; i < iesFileContent.Count; i++)
             {
                 if (searchKey.IsMatch(iesFileContent[i]))
                 {
-                    string anglesString = iesFileContent[i];
+                    iesFileContent.RemoveRange(0, i + 1);
                     break;
                 }
             }
-            pattern = @"\s\d{1,3}\s\d{1,3}\s";
-            searchKey = new Regex(pattern);
-            string anglesDim = searchKey.Match(pattern).Value;
-            //Извлекаем численное значение углов из подстроки
-            char[] anglesDimChar = anglesDim.ToCharArray();
-            string anglesVert = "";
-            string anglesHor = "";
-            bool flagVH = true; // флаг, отвечающий за выбор вертикального или горизонтального угла
-            for (int i = 1; i < anglesDimChar.Length; i++)
+
+            // переформируем оставшуюсячасть так, чтобы значения сил света в одной плоскости измерений были записаны строго в одной строке
+            // Для этого преобразуем коллекцию строк в коллекцию значений типа double
+            List<double> intencityVector = new List<double>();
+           
+            for(int i = 0; i < iesFileContent.Count; i++)
             {
-                if (Char.IsDigit(anglesDimChar[i])) // ошибка в этой строке (в anglesDimChar.Length - 2)
+                string[] splittedString = iesFileContent[i].Split(' ');
+                for (int j = 0; j < splittedString.Length - 1; j++)
                 {
-                    if (flagVH) anglesVert += anglesDimChar[i];
-                    else anglesHor += anglesDimChar[i];
+                    intencityVector.Add(Double.Parse(splittedString[j]));
                 }
-                else flagVH = false;
             }
-            alphaCount = int.Parse(anglesVert);
-            bethaCount = int.Parse(anglesHor);           
-        }
+            // "Нарезаем" коллекцию значений сил света по плоскостям измерений
+            //double initialValue = intencityVector[0];            
+            for(int i = 0; i < BethaCount; i++)
+            {
+                IntencityMatrix.Add(new double[AlphaCount]);
+                intencityVector.CopyTo(i * AlphaCount, IntencityMatrix[i], 0, AlphaCount);               
+            }
+        }     
     }
 }
